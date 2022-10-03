@@ -124,7 +124,7 @@ const transactionSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(removeTransaction.fulfilled, (state, action) => {
-                console.log(action)
+
                 state.isError = false;
                 state.isLoading = false;
 

@@ -44,7 +44,7 @@ export default function Form() {
         dispatch(createTransactions({
             name,
             type,
-            amount
+            amount: Number(amount)
         }))
 
         reset()
@@ -55,15 +55,15 @@ export default function Form() {
         e.preventDefault()
         setEditMode(true)
         dispatch(changeTransaction({
-            id:editing.id,
-            data:{
+            id: editing.id,
+            data: {
                 name,
                 type,
-                amount
+                amount: Number(amount)
             }
 
         }))
-       
+
 
         reset()
 
