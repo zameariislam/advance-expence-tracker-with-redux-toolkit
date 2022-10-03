@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 import {
     addTransaction,
     deleteTransaction,
@@ -11,6 +12,7 @@ const initialState = {
     isLoading: false,
     isError: false,
     error: "",
+    editing: {}
 
 };
 
@@ -51,6 +53,18 @@ export const removeTransaction = createAsyncThunk(
 const transactionSlice = createSlice({
     name: "transaction",
     initialState,
+    reducers: {
+        activeEditMode: (state, action) => {
+
+            state.editing = action.payload
+
+
+        },
+        inActiveEditMode: (state, action) => {
+            state.editing = {}
+
+        },
+    },
 
 
 
@@ -76,7 +90,7 @@ const transactionSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(createTransactions.fulfilled, (state, action) => {
-               
+
                 state.isError = false;
                 state.isLoading = false;
                 state.transactions.push(action.payload);
@@ -127,4 +141,6 @@ const transactionSlice = createSlice({
 });
 
 export default transactionSlice.reducer;
+
+export const { activeEditMode, inActiveEditMode } = transactionSlice.actions
 

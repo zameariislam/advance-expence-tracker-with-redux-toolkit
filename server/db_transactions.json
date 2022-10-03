@@ -1,10 +1,22 @@
 {
   "transactions": [
     {
-      "name": "abc",
+      "name": "microsoft",
       "type": "income",
-      "amount": "100",
+      "amount": "100000",
       "id": 1
+    },
+    {
+      "name": "dd",
+      "type": "expense",
+      "amount": "200",
+      "id": 2
+    },
+    {
+      "name": "ss",
+      "type": "income",
+      "amount": "1000",
+      "id": 3
     }
   ]
 }
